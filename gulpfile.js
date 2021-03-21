@@ -4,9 +4,15 @@
 const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
+const ghPages = require('gulp-gh-pages');
 
 const dist = "./dist/";
 //const dist = "C:/xampp/htdocs/testSiteWindows";
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});
 
 
 gulp.task("copy-html", () => {
